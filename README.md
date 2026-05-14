@@ -6,21 +6,29 @@ Agent Skill for using Grok inside Codex to find employees at supplied companies 
 
 Open the in-app browser inside Codex and log in to [grok.com](https://grok.com) before invoking the skill. The workflow depends on the authenticated Grok UI being available in the Codex in-app browser, but it does not depend on any specific user account or local machine path.
 
-## Skill Location
+## Install
 
-The skill is stored at:
+This repository keeps the shareable skill as one self-contained folder:
 
 ```text
-.agents/skills/find-employees-with-grok/SKILL.md
+.agents/skills/find-employees-with-grok/
 ```
 
-To install it for local discovery, copy or symlink the skill folder into the skills directory supported by your Codex setup. Common locations include:
+Install it by asking Codex to use `$skill-installer` with the GitHub folder URL:
+
+```text
+Use $skill-installer to install https://github.com/grp06/Find-Employees-with-Grok/tree/main/.agents/skills/find-employees-with-grok
+```
+
+Or copy/symlink the skill folder into the skills directory supported by your agent setup. Common locations include:
 
 ```text
 .agents/skills/find-employees-with-grok/
 ~/.codex/skills/find-employees-with-grok/
 ~/.agents/skills/find-employees-with-grok/
 ```
+
+Restart Codex after installing so the skill metadata is discovered.
 
 ## Example Prompt
 
@@ -46,3 +54,15 @@ Write the output to devrel_x_handles.csv.
 - A status ledger with one line per company, including row count and caveats.
 
 The skill appends and validates after each company so partial progress survives browser or tool interruptions.
+
+## Package Contents
+
+```text
+.agents/skills/find-employees-with-grok/
+├── SKILL.md
+├── LICENSE.txt
+└── agents/
+    └── openai.yaml
+```
+
+The README stays outside the skill folder so the skill payload remains lean when loaded by an agent.
