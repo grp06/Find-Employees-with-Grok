@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Employees with Grok"
+  short_description: "Find role-matched employees via Grok."
+  default_prompt: "Use $find-employees-with-grok to find developer relations employees for these companies and export X handles to CSV."
