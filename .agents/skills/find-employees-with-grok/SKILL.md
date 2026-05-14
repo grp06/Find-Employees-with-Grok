@@ -1,11 +1,11 @@
 ---
 name: find-employees-with-grok
-description: Use when the user wants Codex to use Grok in the in-app browser to find employees at a supplied list of companies who match a supplied role or role family, then export direct X/Twitter handles to a CSV. Trigger for requests like "find developer relations people at these companies", "use Grok to find AI engineers at company list", or "make a company,handle CSV from Grok results".
+description: Use when the user wants Codex to use Grok in the in-app browser to find employees at a supplied list of companies who match a supplied role or role family, then export direct X/Twitter handles to a CSV. Trigger for prompts like "find developer relations people at these companies", "use Grok to find AI engineers at this company list", or "make a company,handle CSV from Grok results".
 ---
 
 # Find Employees With Grok
 
-Use Grok as the research surface and produce a durable CSV of company-to-X-handle matches for a user-supplied role name or role family.
+Use Grok as the research surface and produce a durable CSV of company-to-X-handle matches for a user-supplied role name or role family. Keep the skill portable: do not rely on machine-specific paths, account names, prior conversations, or one user's local setup.
 
 ## Required Inputs
 
@@ -13,7 +13,7 @@ Collect or infer:
 
 - `role_query`: the role or role family to search for, such as `developer relations`, `developer advocate`, `AI engineer`, or `founder`.
 - `companies`: a newline- or comma-separated company list.
-- `output_csv`: default to `grok_employee_x_handles.csv` in the current workspace.
+- `output_csv`: default to `grok_employee_x_handles.csv` in the current workspace unless the user supplies another path.
 
 If either `role_query` or `companies` is missing, ask for only the missing input.
 
@@ -21,11 +21,11 @@ If either `role_query` or `companies` is missing, ask for only the missing input
 
 Use the Codex in-app browser through the Browser skill/plugin. Do not use Chrome unless the user explicitly asks for Chrome.
 
-Before starting, ensure the user has opened the Codex in-app browser and is logged in to `grok.com`. If Grok is not open, open `https://grok.com`. If login, CAPTCHA, paywall, age gate, or account permission blocks the workflow, stop and ask the user to handle it.
+Before starting, ensure the user has opened the Codex in-app browser and is logged in to `grok.com`. If Grok is not open, open `https://grok.com`. If login, CAPTCHA, paywall, age gate, or account permission blocks the workflow, stop and ask the user to handle it. Do not assume any particular Grok account, browser profile, or local username.
 
 ## Output Files
 
-Create or update:
+Create or update in the active workspace or at the user-supplied path:
 
 - CSV: `company,x_handle`
 - Status ledger: same basename plus `_status.md`

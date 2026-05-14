@@ -4,7 +4,7 @@ Agent Skill for using Grok inside Codex to find employees at supplied companies 
 
 ## Before You Start
 
-Open the in-app browser inside Codex and log in to [grok.com](https://grok.com) before invoking the skill. The workflow depends on the authenticated Grok UI being available in the Codex in-app browser.
+Open the in-app browser inside Codex and log in to [grok.com](https://grok.com) before invoking the skill. The workflow depends on the authenticated Grok UI being available in the Codex in-app browser, but it does not depend on any specific user account or local machine path.
 
 ## Skill Location
 
@@ -14,10 +14,12 @@ The skill is stored at:
 .agents/skills/find-employees-with-grok/SKILL.md
 ```
 
-It has also been installed locally at:
+To install it for local discovery, copy or symlink the skill folder into the skills directory supported by your Codex setup. Common locations include:
 
 ```text
-/Users/georgepickett/.agents/skills/find-employees-with-grok/SKILL.md
+.agents/skills/find-employees-with-grok/
+~/.codex/skills/find-employees-with-grok/
+~/.agents/skills/find-employees-with-grok/
 ```
 
 ## Example Prompt
