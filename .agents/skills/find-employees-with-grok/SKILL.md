@@ -1,6 +1,12 @@
 ---
 name: find-employees-with-grok
-description: Use when the user wants Codex to use Grok in the in-app browser to find employees at a supplied list of companies who match a supplied role or role family, then export direct X/Twitter handles to a CSV. Trigger for prompts like "find developer relations people at these companies", "use Grok to find AI engineers at this company list", or "make a company,handle CSV from Grok results".
+description: >-
+  Use when the user wants Codex to use Grok in the in-app browser to find
+  employees at a supplied list of companies who match a supplied role or role
+  family, then export direct X/Twitter handles to a CSV. Trigger for prompts
+  like "find developer relations people at these companies", "use Grok to find
+  AI engineers at this company list", or "make a company,handle CSV from Grok
+  results".
 ---
 
 # Find Employees With Grok
